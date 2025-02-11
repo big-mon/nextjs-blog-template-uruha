@@ -3,6 +3,7 @@ import Pagination from "@components/pagination";
 import { getAllPosts } from "@lib/blogService";
 import { howTotalPages } from "@lib/pagination";
 import { PER_PAGE } from "@lib/constants";
+import { ArticleList } from "@components/ArticleList";
 
 export default async function Page() {
   const page = 1;
@@ -12,6 +13,8 @@ export default async function Page() {
 
   return (
     <main className="container mx-auto max-w-5xl">
+      <ArticleList type={"all"} />
+
       <MoreStories posts={pagePosts} />
 
       <div className="mb-16">

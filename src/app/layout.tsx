@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import cn from "classnames";
 import GlobalHeader from "@components/header";
 import Footer from "@components/footer";
-import { Noto_Serif_JP } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
@@ -10,7 +11,7 @@ import {
 } from "@lib/constants";
 import "@styles/globals.css";
 
-const mainFont = Noto_Serif_JP({
+const mainFont = Noto_Sans_JP({
   subsets: ["latin"],
   display: "swap",
 });
@@ -49,7 +50,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
       </head>
       <body
-        className={`${mainFont.className} bg-white text-gray-900 overflow-x-hidden`}
+        className={cn(
+          mainFont.className,
+          "bg-background text-primary overflow-x-hidden",
+        )}
       >
         <GlobalHeader />
         {children}
