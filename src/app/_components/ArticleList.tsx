@@ -21,7 +21,7 @@ export const ArticleList = ({ type, category, posts }: Props) => {
 
   return (
     <section>
-      <SectionTitle title={label} />
+      <SectionTitle title={label} category={category} />
 
       <div
         className={cn(

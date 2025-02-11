@@ -16,6 +16,8 @@ export default async function Page() {
 
       <ArticleList type={"category"} category={"Travel"} posts={allPosts} />
 
+      <ArticleList type={"category"} category={"Technology"} posts={allPosts} />
+
       <div className="mb-16">
         <Pagination
           type={"all"}
