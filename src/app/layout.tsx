@@ -1,13 +1,13 @@
+import type { Metadata } from "next";
 import GlobalHeader from "@components/header";
 import Footer from "@components/footer";
+import { Noto_Serif_JP } from "next/font/google";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
   TWITTER,
   SITE_IMAGE,
 } from "@lib/constants";
-import type { Metadata } from "next";
-import { Noto_Serif_JP } from "next/font/google";
 import "@styles/globals.css";
 
 const mainFont = Noto_Serif_JP({
