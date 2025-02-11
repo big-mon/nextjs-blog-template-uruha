@@ -1,5 +1,6 @@
 "use client";
 
+import cn from "classnames";
 import { CldImage } from "next-cloudinary";
 
 type Props = {
@@ -7,6 +8,7 @@ type Props = {
   src: string;
   size: "large" | "small";
   blurredSrc: string;
+  className?: string;
 };
 
 const imageConfig = {
@@ -19,12 +21,18 @@ const imageConfig = {
   small: {
     width: 640,
     height: 427,
-    class: "w-full object-cover rounded-xl aspect-w-2 aspect-h-1",
+    class: "w-full object-cover aspect-w-2 aspect-h-1",
     priority: false,
   },
 };
 
-const CoverImage = ({ title, src, size, blurredSrc }: Props) => {
+const CoverImage = ({
+  title,
+  src,
+  size,
+  blurredSrc,
+  className = "",
+}: Props) => {
   const config = imageConfig[size];
 
   return (
@@ -33,7 +41,7 @@ const CoverImage = ({ title, src, size, blurredSrc }: Props) => {
       width={config.width}
       height={config.height}
       alt={`Cover Image for ${title}`}
-      className={config.class}
+      className={cn(config.class, className)}
       placeholder="blur"
       blurDataURL={blurredSrc}
       priority={config.priority}

@@ -14,7 +14,8 @@ export const SectionTitle = ({ title }: Props) => {
     <h2
       className={cn(
         mainFont.className,
-        "relative text-2xl font-medium tracking-wide uppercase",
+        "relative mb-8",
+        "text-3xl font-medium tracking-wide uppercase antialiased",
         "after:absolute after:top-1/2 after:right-0 after:-z-10 after:h-0.5 after:w-full after:-translate-y-1/2 after:bg-black",
       )}
     >

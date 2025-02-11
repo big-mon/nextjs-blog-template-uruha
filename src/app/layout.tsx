@@ -52,7 +52,7 @@ export default function RootLayout({
       <body
         className={cn(
           mainFont.className,
-          "bg-background text-primary overflow-x-hidden",
+          "bg-background text-neutral overflow-x-hidden",
         )}
       >
         <GlobalHeader />

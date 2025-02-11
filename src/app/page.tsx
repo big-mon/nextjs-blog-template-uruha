@@ -1,4 +1,3 @@
-import { MoreStories } from "@components/more-stories";
 import Pagination from "@components/pagination";
 import { getAllPosts } from "@lib/blogService";
 import { howTotalPages } from "@lib/pagination";
@@ -12,10 +11,10 @@ export default async function Page() {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className="container mx-auto max-w-5xl">
-      <ArticleList type={"all"} />
+    <main className="container mx-auto max-w-7xl">
+      <ArticleList type={"all"} posts={allPosts.slice(0, 3)} />
 
-      <MoreStories posts={pagePosts} />
+      <ArticleList type={"category"} category={"Travel"} posts={allPosts} />
 
       <div className="mb-16">
         <Pagination

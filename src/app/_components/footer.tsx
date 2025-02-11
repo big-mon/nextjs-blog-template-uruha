@@ -16,7 +16,7 @@ const SocialLink = ({ href, children, label }: Social) => (
 
 const TwitterIcon = () => (
   <svg
-    className="w-5 h-5"
+    className="h-5 w-5"
     fill="currentColor"
     viewBox="0 0 24 24"
     aria-hidden="true"
@@ -27,7 +27,7 @@ const TwitterIcon = () => (
 
 const GitHubIcon = () => (
   <svg
-    className="w-5 h-5"
+    className="h-5 w-5"
     fill="currentColor"
     viewBox="0 0 24 24"
     aria-hidden="true"
@@ -38,8 +38,8 @@ const GitHubIcon = () => (
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200">
-      <div className="container max-w-5xl mx-auto p-4 py-6 lg:py-8">
+    <footer className="border-t border-neutral-200 bg-neutral-50">
+      <div className="container mx-auto max-w-7xl p-4 py-6 lg:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center">
             Copyright © {new Date().getFullYear()}{" "}
@@ -48,7 +48,7 @@ export function Footer() {
             </Link>
             . All Rights Reserved.
           </span>
-          <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <SocialLink
               href={`https://twitter.com/${TWITTER}`}
               label="X(Twitter)"
