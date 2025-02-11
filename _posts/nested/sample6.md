@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/m4lwcsjvf2fsjilp2dso
-category: 昔話
+category: Technology
 tags: ["中国", "旅行"]
 ---
 

@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/upgl6186rytxb1frju6x
-category: エッセイ
+category: Technology
 tags: ["ネコ", "ネズミ"]
 ---
 

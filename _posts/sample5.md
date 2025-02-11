@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/oajmdfvac2ydbyrudcwo
-category: 雑学
+category: Travel
 tags: ["驚き", "日常生活", "知識"]
 ---
 

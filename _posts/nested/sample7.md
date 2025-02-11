@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/sa2vqdeyj26zpdrvbmgb
-category: エッセイ
+category: Technology
 tags: ["科学"]
 ---
 

@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/waobhkmtac9vehog5cd8
-category: 昔話
+category: Technology
 tags: ["ネズミ"]
 ---
 

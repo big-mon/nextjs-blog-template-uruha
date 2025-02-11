@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/dfxk6efbqnmtgnhim9nd
-category: 昔話
+category: Technology
 tags: ["ヤギ"]
 ---
 

@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/gfi3ztohtahsbwksroqx
-category: エッセイ
+category: Travel
 tags: ["香り", "嗅覚", "感情"]
 ---
 

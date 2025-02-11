@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/l7v6bktbmevxtrinym4i
-category: 昔話
+category: Technology
 tags: ["日記"]
 ---
 

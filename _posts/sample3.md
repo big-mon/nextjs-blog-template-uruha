@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/fdhpadnbf4e330nt4sew
-category: sample
+category: Travel
 tags: ["tag1", "tag2"]
 ---
 

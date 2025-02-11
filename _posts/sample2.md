@@ -7,7 +7,7 @@ author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
 coverImage: /illust/iygtjxtsrs1hgqbihrer
-category: 旅行
+category: Travel
 tags: []
 ---
 
