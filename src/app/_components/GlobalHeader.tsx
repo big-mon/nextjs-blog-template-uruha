@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@components/logo";
 import Menu from "@components/menu";
 
-const GlobalHeader = () => {
+export const GlobalHeader = () => {
   return (
     <header className="container mx-auto max-w-7xl">
       <div className="flex flex-wrap items-center justify-between px-5 py-5 md:py-6">
@@ -14,5 +14,3 @@ const GlobalHeader = () => {
     </header>
   );
 };
-
-export default GlobalHeader;

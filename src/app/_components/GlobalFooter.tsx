@@ -36,7 +36,7 @@ const GitHubIcon = () => (
   </svg>
 );
 
-export function Footer() {
+export const GlobalFooter = () => {
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
       <div className="container mx-auto max-w-7xl p-4 py-6 lg:py-8">
@@ -63,6 +63,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
-
-export default Footer;
+};
