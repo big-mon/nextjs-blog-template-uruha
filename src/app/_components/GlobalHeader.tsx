@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@components/logo";
+import { Logo } from "@components/Logo";
 import Menu from "@components/menu";
 
 export const GlobalHeader = () => {
