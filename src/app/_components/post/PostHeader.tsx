@@ -47,6 +47,7 @@ const PostHeader = async ({
         <div className="mx-auto mb-3 max-w-2xl text-xs text-gray-500 md:mb-4">
           {tags.map((tag) => (
             <Link
+              key={tag}
               href={"/tag/" + tag.toLowerCase() + "/1"}
               className="ml-4 hover:text-teal-500 md:mr-4 md:ml-0"
             >
