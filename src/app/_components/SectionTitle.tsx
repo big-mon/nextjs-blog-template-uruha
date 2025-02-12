@@ -14,7 +14,7 @@ type Props = {
   isTopPage: boolean;
 };
 
-export const SectionTitle = ({ type, segment, isTopPage }: Props) => {
+const SectionTitle = ({ type, segment, isTopPage }: Props) => {
   let seeMoreHref = "/1";
   switch (type) {
     case "category":
@@ -61,3 +61,5 @@ export const SectionTitle = ({ type, segment, isTopPage }: Props) => {
     </h2>
   );
 };
+
+export default SectionTitle;

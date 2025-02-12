@@ -1,6 +1,6 @@
 import cn from "classnames";
-import { ArticleList } from "@components/ArticleList";
-import { Pagination } from "@components/Pagination";
+import ArticleList from "@components/ArticleList";
+import Pagination from "@components/Pagination";
 import { getAllPosts, howTotalPages } from "@lib/blogService";
 import { PER_PAGE } from "@lib/constants";
 

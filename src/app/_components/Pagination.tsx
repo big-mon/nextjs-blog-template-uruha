@@ -8,7 +8,7 @@ type Props = {
   prefix: string;
 };
 
-export const Pagination = ({ type, currentPage, totalPage, prefix }: Props) => {
+const Pagination = ({ type, currentPage, totalPage, prefix }: Props) => {
   const hasPrev = currentPage > 1;
   const hasNext = totalPage > currentPage;
 
@@ -47,3 +47,5 @@ export const Pagination = ({ type, currentPage, totalPage, prefix }: Props) => {
     </div>
   );
 };
+
+export default Pagination;

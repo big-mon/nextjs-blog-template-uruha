@@ -1,7 +1,7 @@
 import cn from "classnames";
 import { Post } from "@interfaces/post";
-import { SectionTitle } from "./SectionTitle";
-import { ArticleCard } from "./ArticleCard";
+import SectionTitle from "./SectionTitle";
+import ArticleCard from "./ArticleCard";
 
 type Props = {
   type: "all" | "category" | "tag";
@@ -10,7 +10,7 @@ type Props = {
   isTopPage: boolean;
 };
 
-export const ArticleList = ({
+const ArticleList = ({
   type,
   segment = "Latest Articles",
   posts,
@@ -39,3 +39,5 @@ export const ArticleList = ({
     </section>
   );
 };
+
+export default ArticleList;

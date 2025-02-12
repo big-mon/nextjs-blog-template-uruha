@@ -1,9 +1,9 @@
 import cn from "classnames";
 import Link from "next/link";
-import { Logo } from "@components/Logo";
-import { Menu } from "@components/Menu";
+import Logo from "@components/Logo";
+import Menu from "@components/Menu";
 
-export const GlobalHeader = () => {
+const GlobalHeader = () => {
   return (
     <header
       className={cn(
@@ -19,3 +19,5 @@ export const GlobalHeader = () => {
     </header>
   );
 };
+
+export default GlobalHeader;

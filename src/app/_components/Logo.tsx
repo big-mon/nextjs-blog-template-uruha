@@ -11,7 +11,7 @@ const logoFont = Jost({
   display: "swap",
 });
 
-export const Logo = () => {
+const Logo = () => {
   const pathname = usePathname();
   const isTopPage = pathname === "/";
 
@@ -35,3 +35,5 @@ export const Logo = () => {
     </div>
   );
 };
+
+export default Logo;

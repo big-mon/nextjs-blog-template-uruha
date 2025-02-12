@@ -10,12 +10,7 @@ type Props = {
   category: string;
 };
 
-export const ArticleCard = async ({
-  title,
-  slug,
-  coverImage,
-  category,
-}: Props) => {
+const ArticleCard = async ({ title, slug, coverImage, category }: Props) => {
   // blur画像用のBase64を取得
   const imageBlurUrl = await getCloudinaryBlurredSrc(coverImage);
 
@@ -58,3 +53,5 @@ export const ArticleCard = async ({
     </article>
   );
 };
+
+export default ArticleCard;

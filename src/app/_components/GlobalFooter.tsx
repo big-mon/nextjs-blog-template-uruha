@@ -37,7 +37,7 @@ const GitHubIcon = () => (
   </svg>
 );
 
-export const GlobalFooter = () => {
+const GlobalFooter = () => {
   return (
     <footer className={cn("bg-neutral text-background")}>
       <div
@@ -68,3 +68,5 @@ export const GlobalFooter = () => {
     </footer>
   );
 };
+
+export default GlobalFooter;

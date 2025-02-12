@@ -6,7 +6,7 @@ import Link from "next/link";
 import MenuOpenedIcon from "@components/icon/menuOpened";
 import MenuClosedIcon from "@components/icon/menuClosed";
 
-export const Menu = () => {
+const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuList = [
@@ -58,3 +58,5 @@ export const Menu = () => {
     </>
   );
 };
+
+export default Menu;
