@@ -6,7 +6,7 @@ import Image from "next/image";
 import Icon from "../icon.svg";
 import { SITE_NAME } from "@lib/constants";
 
-export default function Logo() {
+export const Logo = () => {
   const pathname = usePathname();
   const isTopPage = pathname === "/";
 
@@ -22,6 +22,6 @@ export default function Logo() {
         height={32}
       />
       <span className="text-xl">{SITE_NAME}</span>
-    </>
+    </>,
   );
-}
+};
