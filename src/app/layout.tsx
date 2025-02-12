@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import cn from "classnames";
-import { GlobalHeader } from "@components/GlobalHeader";
-import { GlobalFooter } from "@components/GlobalFooter";
+import GlobalHeader from "@components/GlobalHeader";
+import GlobalFooter from "@components/GlobalFooter";
 import { Noto_Sans_JP } from "next/font/google";
 import {
   SITE_NAME,
