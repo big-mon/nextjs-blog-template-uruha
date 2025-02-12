@@ -11,7 +11,7 @@ type Params = {
   }>;
 };
 
-export default async function Post(props: Params) {
+export default async function Page(props: Params) {
   const params = await props.params;
   const post = getPostBySlug(params.slug);
 
