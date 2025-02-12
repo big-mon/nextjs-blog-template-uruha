@@ -27,7 +27,7 @@ export const SectionTitle = ({ title, category }: Props) => {
       <span className={cn("bg-background flex-none pr-3")}>{title}</span>
       <Link
         className={cn(
-          "bg-background text-primary flex flex-none items-center pl-3 text-sm tracking-wide uppercase",
+          "bg-background hover:text-tertiary text-primary flex flex-none items-center px-3 text-sm tracking-wide uppercase duration-500",
         )}
         href={
           category
