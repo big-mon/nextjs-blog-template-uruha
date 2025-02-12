@@ -1,4 +1,4 @@
-import { Pagination } from "@components/Paginationa";
+import { Pagination } from "@components/Pagination";
 import { getAllPosts } from "@lib/blogService";
 import { howTotalPages } from "@lib/pagination";
 import { PER_PAGE } from "@lib/constants";
