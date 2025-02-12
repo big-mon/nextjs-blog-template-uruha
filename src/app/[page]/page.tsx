@@ -16,7 +16,7 @@ export default async function Page(props: Params) {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className="container mx-auto max-w-5xl">
+    <main className="container mx-auto max-w-7xl">
       <ArticleList type={"all"} posts={pagePosts} isTopPage={false} />
 
       <div className="mb-16">
