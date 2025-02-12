@@ -50,8 +50,8 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       title: post.title,
       images: [
         post.ogImage
-          ? getCloudinaryImageUrl("/illust/" + post.ogImage, "ogp")
-          : getCloudinaryImageUrl("/illust/" + post.coverImage, "ogp"),
+          ? getCloudinaryImageUrl(post.ogImage, "ogp")
+          : getCloudinaryImageUrl(post.coverImage, "ogp"),
       ],
     },
   };
