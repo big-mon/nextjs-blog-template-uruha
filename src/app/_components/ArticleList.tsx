@@ -7,9 +7,10 @@ type Props = {
   type: "all" | "category";
   category?: string;
   posts: Post[];
+  isTopPage: boolean;
 };
 
-export const ArticleList = ({ type, category, posts }: Props) => {
+export const ArticleList = ({ type, category, posts, isTopPage }: Props) => {
   const label =
     type === "all" ? "Latest Articles" : category || "Default Category";
 
@@ -21,7 +22,7 @@ export const ArticleList = ({ type, category, posts }: Props) => {
 
   return (
     <section>
-      <SectionTitle title={label} category={category} />
+      <SectionTitle title={label} category={category} isTopPage={isTopPage} />
 
       <div
         className={cn(
@@ -29,7 +30,7 @@ export const ArticleList = ({ type, category, posts }: Props) => {
           "grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3",
         )}
       >
-        {displayPosts.map((post) => (
+        {displayPosts.slice(0, 6).map((post) => (
           <ArticleCard
             key={post.slug}
             title={post.title}

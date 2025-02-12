@@ -11,10 +11,11 @@ const mainFont = Jost({
 type Props = {
   title: string;
   category?: string;
+  isTopPage: boolean;
 };
 
-export const SectionTitle = ({ title, category }: Props) => {
-  return (
+export const SectionTitle = ({ title, category, isTopPage }: Props) => {
+  return isTopPage ? (
     <h2
       className={cn(
         mainFont.className,
@@ -38,6 +39,15 @@ export const SectionTitle = ({ title, category }: Props) => {
         <span className={cn("pr-2")}>see more</span>
         <ArrowIcon />
       </Link>
+    </h2>
+  ) : (
+    <h2
+      className={cn(
+        mainFont.className,
+        "mb-8 border-b-2 py-12 text-center text-5xl font-medium tracking-wide uppercase antialiased",
+      )}
+    >
+      {category}
     </h2>
   );
 };

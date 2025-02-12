@@ -20,7 +20,7 @@ export default async function Post(props: Params) {
   }
 
   return (
-    <main className="container mx-auto max-w-5xl">
+    <main className="container mx-auto max-w-7xl">
       <article className="mb-32">
         <PostHeader
           title={post.title}

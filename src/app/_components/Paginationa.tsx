@@ -1,17 +1,14 @@
 import Link from "next/link";
 import ArrowIcon from "@components/icon/arrow";
 
-export default function Pagination({
-  type,
-  currentPage,
-  totalPage,
-  prefix,
-}: {
+type Props = {
   type: "all" | "category" | "tag";
   currentPage: number;
   totalPage: number;
   prefix: string;
-}) {
+};
+
+export const Pagination = ({ type, currentPage, totalPage, prefix }: Props) => {
   const hasPrev = currentPage > 1;
   const hasNext = totalPage > currentPage;
 
@@ -23,13 +20,13 @@ export default function Pagination({
   }
 
   return (
-    <div className="flex justify-center mx-auto mt-6">
+    <div className="mx-auto mt-6 flex justify-center">
       {hasPrev && (
         <Link
           href={path + (Number(currentPage) - 1)}
-          className="inline-flex items-center px-4 py-2 mr-3 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          className="mr-3 inline-flex items-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-100 hover:text-gray-700"
         >
-          <span className="-scale-x-100 mr-2">
+          <span className="mr-2 -scale-x-100">
             <ArrowIcon />
           </span>
           Previous
@@ -39,7 +36,7 @@ export default function Pagination({
       {hasNext && (
         <Link
           href={path + (Number(currentPage) + 1)}
-          className="inline-flex items-center px-4 py-2 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          className="inline-flex items-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-100 hover:text-gray-700"
         >
           Next
           <span className="ml-2">
@@ -49,4 +46,4 @@ export default function Pagination({
       )}
     </div>
   );
-}
+};

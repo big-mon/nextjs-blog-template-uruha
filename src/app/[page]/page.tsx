@@ -1,5 +1,5 @@
 import { MoreStories } from "@components/more-stories";
-import Pagination from "@components/pagination";
+import { Pagination } from "@components/Paginationa";
 import { getAllPosts } from "@lib/blogService";
 import { howTotalPages } from "@lib/pagination";
 import { PER_PAGE } from "@lib/constants";
