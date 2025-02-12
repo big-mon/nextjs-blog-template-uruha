@@ -4,25 +4,21 @@ import { SectionTitle } from "./SectionTitle";
 import { ArticleCard } from "./ArticleCard";
 
 type Props = {
-  type: "all" | "category";
-  category?: string;
+  type: "all" | "category" | "tag";
+  segment?: string;
   posts: Post[];
   isTopPage: boolean;
 };
 
-export const ArticleList = ({ type, category, posts, isTopPage }: Props) => {
-  const label =
-    type === "all" ? "Latest Articles" : category || "Default Category";
-
-  const displayPosts = category
-    ? posts.filter(
-        (post) => post.category.toLowerCase() === category.toLowerCase(),
-      )
-    : posts;
-
+export const ArticleList = ({
+  type,
+  segment = "Latest Articles",
+  posts,
+  isTopPage,
+}: Props) => {
   return (
     <section>
-      <SectionTitle title={label} category={category} isTopPage={isTopPage} />
+      <SectionTitle type={type} segment={segment} isTopPage={isTopPage} />
 
       <div
         className={cn(
@@ -30,7 +26,7 @@ export const ArticleList = ({ type, category, posts, isTopPage }: Props) => {
           "grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3",
         )}
       >
-        {displayPosts.slice(0, 6).map((post) => (
+        {posts.map((post) => (
           <ArticleCard
             key={post.slug}
             title={post.title}

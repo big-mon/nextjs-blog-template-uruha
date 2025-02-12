@@ -1,7 +1,6 @@
-import { MoreStories } from "@components/more-stories";
-import Pagination from "@components/Pagination";
-import { getAllPosts } from "@lib/blogService";
-import { howTotalPages } from "@lib/pagination";
+import { ArticleList } from "@components/ArticleList";
+import { Pagination } from "@components/Pagination";
+import { getAllPosts, howTotalPages } from "@lib/blogService";
 import { PER_PAGE } from "@lib/constants";
 
 type Params = {
@@ -19,8 +18,13 @@ export default async function Page(props: Params) {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className="container mx-auto max-w-5xl">
-      <MoreStories posts={pagePosts} title={tag} />
+    <main className="container mx-auto max-w-7xl">
+      <ArticleList
+        type={"tag"}
+        segment={tag}
+        posts={pagePosts}
+        isTopPage={false}
+      />
 
       <div className="mb-16">
         <Pagination

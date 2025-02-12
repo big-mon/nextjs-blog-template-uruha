@@ -1,7 +1,6 @@
 import { ArticleList } from "@components/ArticleList";
 import { Pagination } from "@components/Pagination";
-import { getAllPosts } from "@lib/blogService";
-import { howTotalPages } from "@lib/pagination";
+import { getAllPosts, howTotalPages } from "@lib/blogService";
 import { PER_PAGE } from "@lib/constants";
 
 type Params = {
@@ -21,10 +20,10 @@ export default async function Page(props: Params) {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className="container mx-auto max-w-5xl">
+    <main className="container mx-auto max-w-7xl">
       <ArticleList
         type={"category"}
-        category={category}
+        segment={category}
         posts={pagePosts}
         isTopPage={false}
       />

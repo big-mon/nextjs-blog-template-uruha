@@ -1,8 +1,7 @@
-import { Pagination } from "@components/Pagination";
-import { getAllPosts } from "@lib/blogService";
-import { howTotalPages } from "@lib/pagination";
-import { PER_PAGE } from "@lib/constants";
 import { ArticleList } from "@components/ArticleList";
+import { Pagination } from "@components/Pagination";
+import { getAllPosts, howTotalPages } from "@lib/blogService";
+import { PER_PAGE } from "@lib/constants";
 
 export default async function Page() {
   const page = 1;
@@ -10,21 +9,28 @@ export default async function Page() {
   const pagePosts = allPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   const totalPage = howTotalPages(allPosts);
 
+  const categoryPosts1 = getAllPosts().filter(
+    (post) => post.category.toLowerCase() === "Travel".toLowerCase(),
+  );
+  const categoryPosts2 = getAllPosts().filter(
+    (post) => post.category.toLowerCase() === "Technology".toLowerCase(),
+  );
+
   return (
     <main className="container mx-auto max-w-7xl">
       <ArticleList type={"all"} posts={allPosts.slice(0, 3)} isTopPage={true} />
 
       <ArticleList
         type={"category"}
-        category={"Travel"}
-        posts={allPosts}
+        segment={"Travel"}
+        posts={categoryPosts1}
         isTopPage={true}
       />
 
       <ArticleList
         type={"category"}
-        category={"Technology"}
-        posts={allPosts}
+        segment={"Technology"}
+        posts={categoryPosts2}
         isTopPage={true}
       />
 

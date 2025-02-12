@@ -9,12 +9,23 @@ const mainFont = Jost({
 });
 
 type Props = {
-  title: string;
-  category?: string;
+  type: "all" | "category" | "tag";
+  segment: string;
   isTopPage: boolean;
 };
 
-export const SectionTitle = ({ title, category, isTopPage }: Props) => {
+export const SectionTitle = ({ type, segment, isTopPage }: Props) => {
+  let seeMoreHref = "/1";
+  switch (type) {
+    case "category":
+      seeMoreHref =
+        "/category/" + decodeURIComponent(segment).toLowerCase() + "/1";
+      break;
+    case "tag":
+      seeMoreHref = "/tag/" + decodeURIComponent(segment).toLowerCase() + "/1";
+      break;
+  }
+
   return isTopPage ? (
     <h2
       className={cn(
@@ -25,16 +36,12 @@ export const SectionTitle = ({ title, category, isTopPage }: Props) => {
         "after:absolute after:top-1/2 after:right-0 after:-z-10 after:h-0.5 after:w-full after:-translate-y-1/2 after:bg-black",
       )}
     >
-      <span className={cn("bg-background flex-none pr-3")}>{title}</span>
+      <span className={cn("bg-background flex-none pr-3")}>{segment}</span>
       <Link
         className={cn(
           "bg-background hover:text-tertiary text-primary flex flex-none items-center px-3 text-sm tracking-wide uppercase duration-500",
         )}
-        href={
-          category
-            ? "/category/" + decodeURIComponent(category).toLowerCase() + "/1"
-            : "/1"
-        }
+        href={seeMoreHref}
       >
         <span className={cn("pr-2")}>see more</span>
         <ArrowIcon />
@@ -47,7 +54,7 @@ export const SectionTitle = ({ title, category, isTopPage }: Props) => {
         "mb-8 border-b-2 py-12 text-center text-5xl font-medium tracking-wide uppercase antialiased",
       )}
     >
-      {category}
+      {segment}
     </h2>
   );
 };
