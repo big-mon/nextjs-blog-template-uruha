@@ -1,6 +1,6 @@
 import cn from "classnames";
 import Link from "next/link";
-import CoverImage from "@components/image/cover-image";
+import CoverImage from "@components/CoverImage";
 import { getCloudinaryBlurredSrc } from "@lib/cloudinary";
 
 type Props = {

@@ -1,4 +1,4 @@
-import CoverImage from "@components/image/cover-image";
+import CoverImage from "@components/CoverImage";
 import { getCloudinaryBlurredSrc } from "@lib/cloudinary";
 import DateFormatter from "@components/DateFormatter";
 import PostTitle from "@components/post/PostTitle";
