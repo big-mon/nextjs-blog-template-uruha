@@ -1,3 +1,4 @@
+import cn from "classnames";
 import Link from "next/link";
 import { SITE_NAME, TWITTER, GITHUB } from "@lib/constants";
 import { type Social } from "@interfaces/social";
@@ -5,7 +6,7 @@ import { type Social } from "@interfaces/social";
 const SocialLink = ({ href, children, label }: Social) => (
   <a
     href={href}
-    className="text-gray-500 hover:text-gray-900"
+    className={cn("hover:text-secondary duration-300")}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -27,7 +28,7 @@ const TwitterIcon = () => (
 
 const GitHubIcon = () => (
   <svg
-    className="h-5 w-5"
+    className={cn("h-5 w-5")}
     fill="currentColor"
     viewBox="0 0 24 24"
     aria-hidden="true"
@@ -38,27 +39,30 @@ const GitHubIcon = () => (
 
 export const GlobalFooter = () => {
   return (
-    <footer className="border-t border-neutral-200 bg-neutral-50">
-      <div className="container mx-auto max-w-7xl p-4 py-6 lg:py-8">
-        <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm sm:text-center">
-            Copyright © {new Date().getFullYear()}{" "}
-            <Link href="/" className="hover:underline">
-              {SITE_NAME}
-            </Link>
-            . All Rights Reserved.
-          </span>
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <SocialLink
-              href={`https://twitter.com/${TWITTER}`}
-              label="X(Twitter)"
-            >
-              <TwitterIcon />
-            </SocialLink>
-            <SocialLink href={`https://github.com/${GITHUB}`} label="GitHub">
-              <GitHubIcon />
-            </SocialLink>
-          </div>
+    <footer className={cn("bg-neutral text-background")}>
+      <div
+        className={cn(
+          "mx-5 max-w-7xl py-12 md:mx-auto",
+          "md:flex md:items-center md:justify-between",
+        )}
+      >
+        <span className={cn("mb-6 block text-sm md:mb-0")}>
+          Copyright © {new Date().getFullYear()}{" "}
+          <Link href="/" className={cn("hover:text-secondary duration-500")}>
+            {SITE_NAME}
+          </Link>
+          . All Rights Reserved.
+        </span>
+        <div className={cn("flex space-x-6 md:justify-center")}>
+          <SocialLink
+            href={`https://twitter.com/${TWITTER}`}
+            label="X(Twitter)"
+          >
+            <TwitterIcon />
+          </SocialLink>
+          <SocialLink href={`https://github.com/${GITHUB}`} label="GitHub">
+            <GitHubIcon />
+          </SocialLink>
         </div>
       </div>
     </footer>
