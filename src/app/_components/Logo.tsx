@@ -1,27 +1,37 @@
 "use client";
 
+import cn from "classnames";
 import React from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import Icon from "../icon.svg";
+import { Jost } from "next/font/google";
 import { SITE_NAME } from "@lib/constants";
+
+const logoFont = Jost({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const Logo = () => {
   const pathname = usePathname();
   const isTopPage = pathname === "/";
 
-  return React.createElement(
-    isTopPage ? "h1" : "div",
-    { className: "flex justify-center items-center" },
-    <>
-      <Image
-        className="mr-3 inline"
-        src={Icon}
-        alt={SITE_NAME}
-        width={32}
-        height={32}
-      />
-      <span className="text-xl">{SITE_NAME}</span>
-    </>,
+  return isTopPage ? (
+    <h1
+      className={cn(
+        logoFont.className,
+        "text-xl font-medium tracking-wide antialiased",
+      )}
+    >
+      {SITE_NAME}
+    </h1>
+  ) : (
+    <div
+      className={cn(
+        logoFont.className,
+        "text-xl font-medium tracking-wide antialiased",
+      )}
+    >
+      {SITE_NAME}
+    </div>
   );
 };

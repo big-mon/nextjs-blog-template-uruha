@@ -1,3 +1,4 @@
+import cn from "classnames";
 import { ArticleList } from "@components/ArticleList";
 import { Pagination } from "@components/Pagination";
 import { getAllPosts, howTotalPages } from "@lib/blogService";
@@ -18,7 +19,7 @@ export default async function Page(props: Params) {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className="container mx-auto max-w-7xl">
+    <main className={cn("mx-5 mb-12 max-w-7xl py-4 md:mx-auto")}>
       <ArticleList
         type={"tag"}
         segment={tag}

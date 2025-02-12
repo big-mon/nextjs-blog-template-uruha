@@ -1,14 +1,15 @@
 "use client";
 
+import cn from "classnames";
 import { useState } from "react";
 import Link from "next/link";
 import MenuOpenedIcon from "@components/icon/menuOpened";
 import MenuClosedIcon from "@components/icon/menuClosed";
 
-export default function MenuList() {
+export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menu = [
+  const menuList = [
     { text: "aaa", href: "/" },
     { text: "bbb", href: "/" },
     { text: "ccc", href: "/" },
@@ -22,12 +23,12 @@ export default function MenuList() {
   return (
     <>
       {/* PC画面用メニュー */}
-      <nav className="hidden md:flex w-auto">
-        {menu.map((item, index) => (
+      <nav className={cn("hidden w-auto md:flex")}>
+        {menuList.map((item, index) => (
           <Link
             href={item.href}
             key={index}
-            className="mx-3 px-3 py-3 text-sm hover:text-teal-500"
+            className={cn("hover:text-primary mx-3 px-3 py-3 text-sm")}
           >
             {item.text}
           </Link>
@@ -35,17 +36,17 @@ export default function MenuList() {
       </nav>
 
       {/* スマートフォン画面用ハンバーガーメニュー */}
-      <div className="md:hidden">
-        <button onClick={toggleMenu} className="p-2">
+      <div className={cn("md:hidden")}>
+        <button onClick={toggleMenu} className={cn("p-2")}>
           {isOpen ? <MenuOpenedIcon /> : <MenuClosedIcon />}
         </button>
         {isOpen && (
-          <nav className="flex flex-col items-start">
-            {menu.map((item, index) => (
+          <nav className={cn("flex flex-col items-start")}>
+            {menuList.map((item, index) => (
               <Link
                 href={item.href}
                 key={index}
-                className="px-3 py-3 text-sm hover:text-teal-500"
+                className={cn("hover:text-primary px-3 py-3 text-sm")}
                 onClick={() => setIsOpen(false)} // メニュー項目をクリックしたらメニューを閉じる
               >
                 {item.text}
@@ -56,4 +57,4 @@ export default function MenuList() {
       </div>
     </>
   );
-}
+};

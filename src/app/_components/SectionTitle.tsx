@@ -51,7 +51,10 @@ export const SectionTitle = ({ type, segment, isTopPage }: Props) => {
     <h2
       className={cn(
         mainFont.className,
-        "mb-8 border-b-2 py-12 text-center text-5xl font-medium tracking-wide uppercase antialiased",
+        "text-center text-5xl font-medium tracking-wide uppercase antialiased",
+        "border-b-2",
+        "mb-8",
+        "pt-0 pb-16 md:pb-10",
       )}
     >
       {segment}
