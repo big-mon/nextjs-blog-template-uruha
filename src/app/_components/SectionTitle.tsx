@@ -36,10 +36,16 @@ const SectionTitle = ({ type, segment, isTopPage }: Props) => {
         "after:absolute after:top-1/2 after:right-0 after:-z-10 after:h-0.5 after:w-full after:-translate-y-1/2 after:bg-black",
       )}
     >
-      <span className={cn("bg-background flex-none pr-3")}>{segment}</span>
+      <Link
+        className={cn("bg-background hover:text-neutral")}
+        href={seeMoreHref}
+      >
+        <span className={cn("pr-3")}>{segment}</span>
+      </Link>
+
       <Link
         className={cn(
-          "bg-background hover:text-tertiary text-primary flex flex-none items-center px-3 text-sm tracking-wide uppercase duration-500",
+          "bg-background hover:text-tertiary text-primary hidden items-center px-3 text-sm duration-300 md:flex",
         )}
         href={seeMoreHref}
       >
