@@ -8,7 +8,7 @@ interface CustomLinkProps {
   node: MdastLink;
 }
 
-export const CustomLink = ({ node }: CustomLinkProps) => {
+const CustomLink = ({ node }: CustomLinkProps) => {
   return (
     <Link
       href={node.url}
@@ -21,3 +21,5 @@ export const CustomLink = ({ node }: CustomLinkProps) => {
     </Link>
   );
 };
+
+export default CustomLink;

@@ -1,7 +1,7 @@
 import CoverImage from "@components/image/cover-image";
 import { getCloudinaryBlurredSrc } from "@lib/cloudinary";
-import DateFormatter from "@components/date-formatter";
-import { PostTitle } from "@components/post/post-title";
+import DateFormatter from "@components/DateFormatter";
+import PostTitle from "@components/post/PostTitle";
 import { type Author } from "@interfaces/author";
 import Link from "next/link";
 
@@ -14,19 +14,19 @@ type Props = {
   author: Author;
 };
 
-export async function PostHeader({
+const PostHeader = async ({
   title,
   category,
   tags,
   coverImage,
   date,
   author,
-}: Props) {
+}: Props) => {
   const imageBlurUrl = await getCloudinaryBlurredSrc(coverImage);
 
   return (
     <header className="px-5 py-5">
-      <div className="mx-auto max-w-2xl text-sm text-gray-500 md:flex mb-2">
+      <div className="mx-auto mb-2 max-w-2xl text-sm text-gray-500 md:flex">
         <Link
           href={"/category/" + category.toLowerCase() + "/1"}
           className="hover:text-teal-500"
@@ -39,16 +39,16 @@ export async function PostHeader({
         <DateFormatter dateString={date} />
       </div>
 
-      <div className="mx-auto max-w-2xl break-keep break-words">
+      <div className="mx-auto max-w-2xl break-words break-keep">
         <PostTitle>{title}</PostTitle>
       </div>
 
       {tags.length > 0 && (
-        <div className="mx-auto max-w-2xl mb-3 md:mb-4 text-xs text-gray-500">
+        <div className="mx-auto mb-3 max-w-2xl text-xs text-gray-500 md:mb-4">
           {tags.map((tag) => (
             <Link
               href={"/tag/" + tag.toLowerCase() + "/1"}
-              className="ml-4 md:ml-0 md:mr-4 hover:text-teal-500"
+              className="ml-4 hover:text-teal-500 md:mr-4 md:ml-0"
             >
               #{tag}
             </Link>
@@ -66,4 +66,6 @@ export async function PostHeader({
       </div>
     </header>
   );
-}
+};
+
+export default PostHeader;

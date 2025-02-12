@@ -4,10 +4,12 @@ type Props = {
   content: string;
 };
 
-export function PostBody({ content }: Props) {
+const PostBody = ({ content }: Props) => {
   return (
-    <div className="mx-auto max-w-2xl px-5 md:px-0 leading-relaxed tracking-wider">
+    <div className="mx-auto max-w-2xl px-5 leading-relaxed tracking-wider md:px-0">
       <MarkdownRenderer>{content}</MarkdownRenderer>
     </div>
   );
-}
+};
+
+export default PostBody;

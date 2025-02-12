@@ -10,12 +10,7 @@ type Props = {
   blurredSrc: string;
 };
 
-export const CustomImage = ({
-  src,
-  alt = "",
-  title = "",
-  blurredSrc,
-}: Props) => {
+const CustomImage = ({ src, alt = "", title = "", blurredSrc }: Props) => {
   const imageUrl = getCloudinaryImageUrl(src, "post");
 
   return (
@@ -38,3 +33,5 @@ export const CustomImage = ({
     </span>
   );
 };
+
+export default CustomImage;
