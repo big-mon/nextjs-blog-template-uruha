@@ -1,3 +1,4 @@
+import cn from "classnames";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostBody from "@components/post/PostBody";
@@ -20,8 +21,8 @@ export default async function Page(props: Params) {
   }
 
   return (
-    <main className="container mx-auto max-w-7xl">
-      <article className="mb-32">
+    <main className={cn("mb-12 max-w-7xl md:mx-auto")}>
+      <article className={cn("mb-32")}>
         <PostHeader
           title={post.title}
           category={post.category}
