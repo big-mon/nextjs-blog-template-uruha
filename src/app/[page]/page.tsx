@@ -11,7 +11,8 @@ type Params = {
 };
 
 export default async function Page(props: Params) {
-  const page = (await props.params).page;
+  const params = await props.params;
+  const page = params.page;
   const allPosts = getAllPosts();
   const pagePosts = allPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   const totalPage = howTotalPages(allPosts);
