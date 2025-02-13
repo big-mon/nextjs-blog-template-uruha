@@ -40,7 +40,8 @@ p.paragraph {
 
 div.codeblock {
   white-space: pre;
-  background-color: rgb(242 242 242);
+  color: var(--color-background);
+  background-color: var(--color-neutral);
   margin-bottom: 1.5rem;
   padding: 1rem 0.5rem;
   overflow-x: auto;
@@ -59,12 +60,13 @@ div.box {
     overflow-x: auto;
 
     th {
-      background-color: rgb(242 242 242);
+      color: var(--color-background);
+      background-color: var(--color-neutral);
     }
 
     th,
     td {
-      border-bottom: 1px solid rgb(0 0 0);
+      border-bottom: 1px solid var(--color-neutral);
       padding: 1.5rem 1rem;
 
       &.left {
@@ -105,7 +107,6 @@ ul.list {
 }
 
 blockquote.blockquote {
-  background-color: rgb(242 242 242);
   margin-bottom: 1.5rem;
   padding: 1rem 0.5rem 1rem 4rem;
 
@@ -150,10 +151,10 @@ hr.line {
 }
 
 a.link {
-  color: #259d63;
+  color: var(--color-primary);
   text-decoration: underline;
   &:hover {
-    opacity: 0.5;
+    color: var(--color-tertiary);
   }
 }
 
