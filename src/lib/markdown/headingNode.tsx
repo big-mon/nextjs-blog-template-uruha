@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React from "react";
 import { Heading, Text, Parent } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
@@ -20,7 +21,7 @@ const HeadingNode = ({ node }: HeadingNodeProps) => {
   )[node.depth];
 
   const childrenText = (function getChildrenText(
-    children: (Text | Parent)[]
+    children: (Text | Parent)[],
   ): string {
     return children.reduce((acc, child) => {
       if ("value" in child) {
@@ -34,7 +35,10 @@ const HeadingNode = ({ node }: HeadingNodeProps) => {
   })(node.children as (Text | Parent)[]);
 
   return (
-    <Component id={encodeURIComponent(childrenText)} className={styles.heading}>
+    <Component
+      id={encodeURIComponent(childrenText)}
+      className={cn(styles.heading)}
+    >
       <NodesRenderer nodes={node.children} />
     </Component>
   );

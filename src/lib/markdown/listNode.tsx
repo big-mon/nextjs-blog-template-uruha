@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React from "react";
 import { List } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
@@ -9,11 +10,11 @@ interface ListNodeProps {
 
 const ListNode = ({ node }: ListNodeProps) => {
   return node.ordered ? (
-    <ol className={styles.list}>
+    <ol className={cn(styles.list)}>
       <NodesRenderer nodes={node.children} />
     </ol>
   ) : (
-    <ul className={styles.list}>
+    <ul className={cn(styles.list)}>
       <NodesRenderer nodes={node.children} />
     </ul>
   );

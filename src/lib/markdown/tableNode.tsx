@@ -1,4 +1,4 @@
-import React from "react";
+import cn from "classnames";
 import { Table, TableRow, TableCell } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
 import styles from "@styles/markdown.module.scss";
@@ -10,7 +10,7 @@ interface TableNodeProps {
 const TableNode = ({ node }: TableNodeProps) => {
   const [headRow, ...bodyRows] = node.children as TableRow[];
   return (
-    <table className={styles.table}>
+    <table className={cn(styles.table)}>
       <thead>
         <tr>
           {headRow.children.map((cell, index) => (
@@ -24,7 +24,10 @@ const TableNode = ({ node }: TableNodeProps) => {
         {bodyRows.map((row, index) => (
           <tr key={index}>
             {row.children.map((cell, index) => (
-              <td key={index} className={styles[node.align?.[index] ?? "left"]}>
+              <td
+                key={index}
+                className={cn(styles[node.align?.[index] ?? "left"])}
+              >
                 <NodesRenderer nodes={(cell as TableCell).children} />
               </td>
             ))}
