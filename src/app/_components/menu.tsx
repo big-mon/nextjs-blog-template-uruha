@@ -10,10 +10,13 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuList = [
-    { text: "aaa", href: "/" },
-    { text: "bbb", href: "/" },
-    { text: "ccc", href: "/" },
-    { text: "ddd", href: "/" },
+    { text: "Travel", href: "/category/travel/1" },
+    { text: "Technology", href: "/category/technology/1" },
+    { text: "Other", href: "/category/other/1" },
+    {
+      text: "GitHub",
+      href: "https://github.com/big-mon/nextjs-blog-template-uruha",
+    },
   ];
 
   const toggleMenu = () => {
