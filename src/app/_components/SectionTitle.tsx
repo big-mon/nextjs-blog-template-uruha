@@ -59,7 +59,7 @@ const SectionTitle = ({ type, segment, isTopPage }: Props) => {
         mainFont.className,
         "text-center text-5xl font-medium tracking-wide uppercase antialiased",
         "border-b-2",
-        "mb-8",
+        "mt-6 mb-8",
         "pt-0 pb-16 md:pb-10",
       )}
     >
