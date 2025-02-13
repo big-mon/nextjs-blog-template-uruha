@@ -1,14 +1,9 @@
 import cn from "classnames";
 import ArticleList from "@components/ArticleList";
-import Pagination from "@components/Pagination";
-import { getAllPosts, howTotalPages } from "@lib/blogService";
-import { PER_PAGE } from "@lib/constants";
+import { getAllPosts } from "@lib/blogService";
 
 export default async function Page() {
-  const page = 1;
   const allPosts = getAllPosts();
-  const pagePosts = allPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-  const totalPage = howTotalPages(allPosts);
 
   const categoryPosts1 = getAllPosts().filter(
     (post) => post.category.toLowerCase() === "Travel".toLowerCase(),
@@ -34,15 +29,6 @@ export default async function Page() {
         posts={categoryPosts2}
         isTopPage={true}
       />
-
-      <div className="mb-16">
-        <Pagination
-          type={"all"}
-          currentPage={page}
-          totalPage={totalPage}
-          prefix={""}
-        />
-      </div>
     </main>
   );
 }
