@@ -1,9 +1,10 @@
+import cn from "classnames";
+import Link from "next/link";
 import CoverImage from "@components/CoverImage";
-import { getCloudinaryBlurredSrc } from "@lib/cloudinary";
 import DateFormatter from "@components/DateFormatter";
 import PostTitle from "@components/post/PostTitle";
+import { getCloudinaryBlurredSrc } from "@lib/cloudinary";
 import { type Author } from "@interfaces/author";
-import Link from "next/link";
 
 type Props = {
   title: string;
@@ -25,39 +26,53 @@ const PostHeader = async ({
   const imageBlurUrl = await getCloudinaryBlurredSrc(coverImage);
 
   return (
-    <header className="px-5 py-5">
-      <div className="mx-auto mb-2 max-w-2xl text-sm text-gray-500 md:flex">
+    <header
+      className={cn(
+        "mb-20 max-w-5xl md:mx-auto",
+        "grid-cols-2 items-center gap-6 md:grid",
+      )}
+    >
+      <div
+        className={cn(
+          "relative col-span-1",
+          "mx-5 mb-4 md:mx-0 md:mb-0 md:px-0 md:py-20",
+        )}
+      >
         <Link
           href={"/category/" + category.toLowerCase() + "/1"}
-          className="hover:text-teal-500"
+          className={cn(
+            "hover:text-primary mb-2 inline-block tracking-wide uppercase",
+          )}
         >
           {category}
         </Link>
-      </div>
 
-      <div className="mx-auto max-w-2xl text-xs text-gray-500">
-        <DateFormatter dateString={date} />
-      </div>
-
-      <div className="mx-auto max-w-2xl break-words break-keep">
-        <PostTitle>{title}</PostTitle>
-      </div>
-
-      {tags.length > 0 && (
-        <div className="mx-auto mb-3 max-w-2xl text-xs text-gray-500 md:mb-4">
-          {tags.map((tag) => (
-            <Link
-              key={tag}
-              href={"/tag/" + tag.toLowerCase() + "/1"}
-              className="ml-4 hover:text-teal-500 md:mr-4 md:ml-0"
-            >
-              #{tag}
-            </Link>
-          ))}
+        <div className={cn("mb-6")}>
+          <PostTitle>{title}</PostTitle>
         </div>
-      )}
 
-      <div className="mb-8">
+        <div className={cn("md:absolute md:bottom-6")}>
+          <div className={cn("mb-2 text-xs")}>
+            <DateFormatter dateString={date} />
+          </div>
+
+          {tags.length > 0 && (
+            <div className={cn("mb-3 text-xs md:mb-4")}>
+              {tags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={"/tag/" + tag.toLowerCase() + "/1"}
+                  className={cn("hover:text-primary md:mr-4")}
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className={cn("col-span-1")}>
         <CoverImage
           title={title}
           src={coverImage}

@@ -13,14 +13,14 @@ type Props = {
 
 const imageConfig = {
   large: {
-    width: 1600,
-    height: 900,
-    class: "object-cover rounded-xl",
+    width: 500,
+    height: 281,
+    class: "object-cover",
     priority: true,
   },
   small: {
-    width: 640,
-    height: 427,
+    width: 405,
+    height: 228,
     class: "w-full object-cover aspect-w-2 aspect-h-1",
     priority: false,
   },

@@ -9,7 +9,7 @@ const DateFormatter = ({ dateString }: Props) => {
   const date = dateString;
   return (
     <time dateTime={dateString}>
-      {format(date, "yyyy 年 M 月 d 日", { locale: ja })}
+      {format(date, "yyyy-MM-dd", { locale: ja })}
     </time>
   );
 };
