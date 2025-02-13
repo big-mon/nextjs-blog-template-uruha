@@ -1,5 +1,6 @@
 "use client";
 
+import cn from "classnames";
 import { CldImage } from "next-cloudinary";
 import { getCloudinaryImageUrl } from "@lib/cloudinary";
 
@@ -19,16 +20,16 @@ const CustomImage = ({ src, alt = "", title = "", blurredSrc }: Props) => {
         <CldImage
           src={src}
           alt={alt}
-          width={860}
-          height={860}
+          width={768}
+          height={768}
           placeholder="blur"
           blurDataURL={blurredSrc}
           namedTransformations={["post"]}
-          sizes="(max-width: 672px) 100vw, 672px"
+          className={cn("mx-auto")}
         />
       </a>
       {title === "" ? null : (
-        <span className="block text-center text-gray-500">{title}</span>
+        <span className={cn("text-neutral/80 block text-center")}>{title}</span>
       )}
     </span>
   );
