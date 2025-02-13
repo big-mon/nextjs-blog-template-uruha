@@ -18,8 +18,8 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.4",
-    "@types/node": "^22.13.1",
+    "@tailwindcss/postcss": "^4.0.6",
+    "@types/node": "^22.13.2",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "autoprefixer": "^10.4.20",
