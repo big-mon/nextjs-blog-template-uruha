@@ -1,5 +1,6 @@
 import { ListItem, Paragraph } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
+import { randomUUID } from "crypto";
 
 interface ListItemNodeProps {
   node: ListItem;
@@ -8,15 +9,18 @@ interface ListItemNodeProps {
 const ListItemNode = ({ node }: ListItemNodeProps) => {
   if (node.children.length === 1 && node.children[0].type === "paragraph") {
     return (
-      <li>
-        <NodesRenderer nodes={(node.children[0] as Paragraph).children} />
+      <li key={randomUUID()}>
+        <NodesRenderer
+          nodes={(node.children[0] as Paragraph).children}
+          key={randomUUID()}
+        />
       </li>
     );
   }
 
   return (
-    <li>
-      <NodesRenderer nodes={node.children} />
+    <li key={randomUUID()}>
+      <NodesRenderer nodes={node.children} key={randomUUID()} />
     </li>
   );
 };
