@@ -8,6 +8,16 @@ interface HeadingNodeProps {
   node: Heading;
 }
 
+/**
+ * 指定された深さに基づいて適切なHTMLのHeadingタグをレンダリング
+ *
+ * @param {HeadingNodeProps} props - コンポーネントのプロパティ
+ * @param {Object} props.node - マークダウンのヘッディングノード
+ * @param {number} props.node.depth - ヘッディングの深さ(1から6の範囲)
+ * @param {Array<Text | Parent>} props.node.children - ヘッディングノードの子要素
+ *
+ * @returns {JSX.Element} 指定された深さに基づいて適切なHTMLヘッディングタグを含むJSX要素
+ */
 const HeadingNode = ({ node }: HeadingNodeProps) => {
   const Component = (
     {
