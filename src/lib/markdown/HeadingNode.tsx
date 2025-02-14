@@ -1,12 +1,7 @@
 import cn from "classnames";
-import React from "react";
 import { Heading, Text, Parent } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
 import styles from "@styles/markdown.module.scss";
-
-interface HeadingNodeProps {
-  node: Heading;
-}
 
 /**
  * 指定された深さに基づいて適切なHTMLのHeadingタグをレンダリング
@@ -18,7 +13,7 @@ interface HeadingNodeProps {
  *
  * @returns {JSX.Element} 指定された深さに基づいて適切なHTMLヘッディングタグを含むJSX要素
  */
-const HeadingNode = ({ node }: HeadingNodeProps) => {
+const HeadingNode = ({ node }: { node: Heading }) => {
   const Component = (
     {
       1: "h2",
