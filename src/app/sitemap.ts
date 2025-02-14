@@ -8,7 +8,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
   const allPosts = getAllPosts();
 
   // 静的パス
-  const staticPaths = [
+  const staticPaths: MetadataRoute.Sitemap = [
     {
       // トップページ
       url: `${baseURL}`,
@@ -18,20 +18,20 @@ const sitemap = (): MetadataRoute.Sitemap => {
 
   // カテゴリーページ
   const categories = Array.from(new Set(allPosts.map((item) => item.category)));
-  const categoryPaths = categories.map((category) => ({
+  const categoryPaths: MetadataRoute.Sitemap = categories.map((category) => ({
     url: `${baseURL}/category/${category.toLowerCase()}/1`,
     lastModified: lastModifiedDate,
   }));
 
   // タグページ
   const tags = Array.from(new Set(allPosts.flatMap((item) => item.tags)));
-  const tagPaths = tags.map((tag) => ({
+  const tagPaths: MetadataRoute.Sitemap = tags.map((tag) => ({
     url: `${baseURL}/tag/${tag.toLowerCase()}/1`,
     lastModified: lastModifiedDate,
   }));
 
   // 記事ページ
-  const postPaths = allPosts.map((post) => ({
+  const postPaths: MetadataRoute.Sitemap = allPosts.map((post) => ({
     url: `${baseURL}/post/${post.slug}`,
     lastModified: new Date(post.date),
   }));
