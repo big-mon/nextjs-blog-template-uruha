@@ -2,7 +2,7 @@
 title: "The Rise of VTubers: A New Era of Entertainment"
 description: 麦のように、ふっくらと温かい毛並みが名前の由来です。
 slug: sample14
-date: 2025-01-14T07:00:00
+date: 2025-01-12T07:00:00
 author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg

@@ -2,7 +2,7 @@
 title: AIと共存する未来
 description: むかしむかし、ハツカネズミと小鳥と腸づめがなかまになって、一家をもちました。長いあいだ、みんなはいいぐあいになかよくくらして、財産もだいぶこしらえました。
 slug: sample12
-date: 2025-01-12T07:00:00
+date: 2025-01-15T07:00:00
 author:
   name: Mon
   picture: /assets/blog/authors/tim.jpeg
