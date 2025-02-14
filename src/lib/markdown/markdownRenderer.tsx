@@ -55,158 +55,180 @@ export const MarkdownRenderer = async ({ children }: MarkdownRendererProps) => {
 /**
  * MDASTノード配列を対応したReactコンポーネントに変換する
  */
-export const NodesRenderer = ({ nodes }: NodesRendererProps) => {
-  return nodes.map(async (node, index) => {
-    switch (node.type) {
-      case "heading": {
-        // 見出しノード(h1など)
-        return <HeadingNode key={index} node={node as Heading} />;
-      }
-      case "text":
-      case "linkReference":
-      case "definition": {
-        // テキストノード
-        return (node as Text).value;
-      }
-      case "paragraph": {
-        // 段落ノード
-        return (
-          <p className={styles.paragraph}>
-            <NodesRenderer nodes={(node as Paragraph).children} />
-          </p>
-        );
-      }
-      case "inlineCode": {
-        // インラインコードノード
-        return <code>{(node as InlineCode).value}</code>;
-      }
-      case "blockquote": {
-        // ブロック引用ノード
-        return (
-          <blockquote className={styles.blockquote}>
-            <NodesRenderer nodes={(node as Blockquote).children} />
-          </blockquote>
-        );
-      }
-      case "link": {
-        // リンクノード
-        return <CustomLink key={index} node={node as Link} />;
-      }
-      case "list": {
-        // リストノード
-        return <ListNode key={index} node={node as List} />;
-      }
-      case "listItem": {
-        // リストアイテムノード
-        return <ListItemNode key={index} node={node as ListItem} />;
-      }
-      case "strong": {
-        // 太字ノード
-        return (
-          <strong>
-            <NodesRenderer nodes={(node as Strong).children} />
-          </strong>
-        );
-      }
-      case "emphasis": {
-        // 斜体ノード
-        return (
-          <em>
-            <NodesRenderer nodes={(node as Emphasis).children} />
-          </em>
-        );
-      }
-      case "break": {
-        // 改行ノード
-        return <br />;
-      }
-      case "image": {
-        // 画像ノード
-        const imageBlurUrl = await getCloudinaryBlurredSrc(node.url);
-        return (
-          <CustomImage
-            src={(node as Image).url}
-            alt={(node as Image).alt ?? undefined}
-            title={(node as Image).title ?? undefined}
-            blurredSrc={imageBlurUrl}
-          />
-        );
-      }
-      case "code": {
-        // コードブロックノード
-        return (
-          <div
-            className={styles.codeblock}
-            dangerouslySetInnerHTML={{ __html: (node as Code).value }}
-          />
-        );
-      }
-      case "delete": {
-        // 削除ノード
-        return (
-          <del>
-            <NodesRenderer nodes={(node as Delete).children} />
-          </del>
-        );
-      }
-      case "table": {
-        // 表ノード
-        return (
-          <div className={styles.table}>
-            <TableNode key={index} node={node as Table} />
-          </div>
-        );
-      }
-      case "thematicBreak": {
-        // 水平線ノード
-        return <hr className={styles.line} />;
-      }
-      case "html": {
-        // HTMLノード
-        return (
-          <div
-            className={styles.box}
-            key={index}
-            dangerouslySetInnerHTML={{ __html: (node as Html).value }}
-          />
-        );
-      }
-      case "twitter": {
-        // Twitterノード
-        return (
-          <div className="twitter-embed">
-            <blockquote className="twitter-tweet">
-              <a
-                href={`https://twitter.com/user/status/${node.value}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter: {node.value}
-              </a>
-            </blockquote>
-            <script async src="https://platform.twitter.com/widgets.js" />
-          </div>
-        );
-      }
-      case "youtube": {
-        // YouTubeノード
-        return (
-          <div className={styles.youtube}>
-            <iframe
-              src={`https://www.youtube.com/embed/${node.value}`}
-            ></iframe>
-          </div>
-        );
-      }
-      default: {
-        // 未知のノード
-        return (
-          <div key={index}>
-            <p style={{ color: "red" }}>Unknown node type: {node.type}</p>
-            <pre>{JSON.stringify(node, null, 2)}</pre>
-          </div>
-        );
-      }
-    }
-  });
+export const NodesRenderer = async ({ nodes }: NodesRendererProps) => {
+  const renderedNodes = await Promise.all(
+    nodes.map((node, index) => renderNode(node, index)),
+  );
+  return <>{renderedNodes}</>;
+};
+
+/**
+ * 指定されたノードをレンダリングする非同期関数。
+ *
+ * @param node - レンダリングするノード。ノードのタイプに応じて適切なコンポーネントが選択される。
+ * @param index - ノードのインデックス。キーとして使用される。
+ * @returns レンダリングされたノードのReact要素。
+ *
+ * ノードのタイプに応じて、以下のようなコンポーネントが使用される:
+ * - heading: HeadingNodeコンポーネント
+ * - text, linkReference, definition: テキスト値
+ * - paragraph: <p>タグ内にNodesRendererコンポーネント
+ * - inlineCode: <code>タグ
+ * - blockquote: <blockquote>タグ内にNodesRendererコンポーネント
+ * - link: CustomLinkコンポーネント
+ * - list: ListNodeコンポーネント
+ * - listItem: ListItemNodeコンポーネント
+ * - strong: <strong>タグ内にNodesRendererコンポーネント
+ * - emphasis: <em>タグ内にNodesRendererコンポーネント
+ * - break: <br>タグ
+ * - image: 非同期でCustomImageコンポーネント
+ * - code: <div>タグ内に危険なHTML
+ * - delete: <del>タグ内にNodesRendererコンポーネント
+ * - table: <div>タグ内にTableNodeコンポーネント
+ * - thematicBreak: <hr>タグ
+ * - html: <div>タグ内に危険なHTML
+ * - twitter: Twitter埋め込み
+ * - youtube: YouTube埋め込み
+ *
+ * 未知のノードタイプの場合、エラーメッセージとノードのJSON表現を表示する。
+ */
+const renderNode = async (node: any, index: number) => {
+  const nodeRenderers: { [key: string]: any } = {
+    // headingノードをHeadingNodeコンポーネントに変換
+    heading: (node: Heading) => <HeadingNode key={index} node={node} />,
+
+    // textノードをそのままテキスト値として返す
+    text: (node: Text) => node.value,
+
+    // linkReferenceノードをそのままテキスト値として返す
+    linkReference: (node: Text) => node.value,
+
+    // definitionノードをそのままテキスト値として返す
+    definition: (node: Text) => node.value,
+
+    // paragraphノードを<p>タグ内にNodesRendererコンポーネントとして変換
+    paragraph: (node: Paragraph) => (
+      <p className={styles.paragraph}>
+        <NodesRenderer nodes={node.children} />
+      </p>
+    ),
+
+    // inlineCodeノードを<code>タグに変換
+    inlineCode: (node: InlineCode) => <code>{node.value}</code>,
+
+    // blockquoteノードを<blockquote>タグ内にNodesRendererコンポーネントとして変換
+    blockquote: (node: Blockquote) => (
+      <blockquote className={styles.blockquote}>
+        <NodesRenderer nodes={node.children} />
+      </blockquote>
+    ),
+
+    // linkノードをCustomLinkコンポーネントに変換
+    link: (node: Link) => <CustomLink key={index} node={node} />,
+
+    // listノードをListNodeコンポーネントに変換
+    list: (node: List) => <ListNode key={index} node={node} />,
+
+    // listItemノードをListItemNodeコンポーネントに変換
+    listItem: (node: ListItem) => <ListItemNode key={index} node={node} />,
+
+    // strongノードを<strong>タグ内にNodesRendererコンポーネントとして変換
+    strong: (node: Strong) => (
+      <strong>
+        <NodesRenderer nodes={node.children} />
+      </strong>
+    ),
+
+    // emphasisノードを<em>タグ内にNodesRendererコンポーネントとして変換
+    emphasis: (node: Emphasis) => (
+      <em>
+        <NodesRenderer nodes={node.children} />
+      </em>
+    ),
+
+    // breakノードを<br>タグに変換
+    break: () => <br />,
+
+    // imageノードを非同期でCustomImageコンポーネントに変換
+    image: async (node: Image) => {
+      const imageBlurUrl = await getCloudinaryBlurredSrc(node.url);
+      return (
+        <CustomImage
+          src={node.url}
+          alt={node.alt ?? undefined}
+          title={node.title ?? undefined}
+          blurredSrc={imageBlurUrl}
+        />
+      );
+    },
+
+    // codeノードを<div>タグ内に危険なHTMLとして変換
+    code: (node: Code) => (
+      <div
+        className={styles.codeblock}
+        dangerouslySetInnerHTML={{ __html: node.value }}
+      />
+    ),
+
+    // deleteノードを<del>タグ内にNodesRendererコンポーネントとして変換
+    delete: (node: Delete) => (
+      <del>
+        <NodesRenderer nodes={node.children} />
+      </del>
+    ),
+
+    // tableノードを<div>タグ内にTableNodeコンポーネントとして変換
+    table: (node: Table) => (
+      <div className={styles.table}>
+        <TableNode key={index} node={node} />
+      </div>
+    ),
+
+    // thematicBreakノードを<hr>タグに変換
+    thematicBreak: () => <hr className={styles.line} />,
+
+    // htmlノードを<div>タグ内に危険なHTMLとして変換
+    html: (node: Html) => (
+      <div
+        className={styles.box}
+        key={index}
+        dangerouslySetInnerHTML={{ __html: node.value }}
+      />
+    ),
+
+    // twitterノードをTwitter埋め込みとして変換
+    twitter: (node: any) => (
+      <div className="twitter-embed">
+        <blockquote className="twitter-tweet">
+          <a
+            href={`https://twitter.com/user/status/${node.value}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter: {node.value}
+          </a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" />
+      </div>
+    ),
+
+    // youtubeノードをYouTube埋め込みとして変換
+    youtube: (node: any) => (
+      <div className={styles.youtube}>
+        <iframe src={`https://www.youtube.com/embed/${node.value}`}></iframe>
+      </div>
+    ),
+  };
+
+  const renderer = nodeRenderers[node.type];
+  if (renderer) {
+    return renderer(node);
+  } else {
+    return (
+      <div key={index}>
+        <p style={{ color: "red" }}>Unknown node type: {node.type}</p>
+        <pre>{JSON.stringify(node, null, 2)}</pre>
+      </div>
+    );
+  }
 };
