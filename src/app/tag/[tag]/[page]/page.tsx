@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { Metadata } from "next";
 import ArticleList from "@components/ArticleList";
 import Pagination from "@components/Pagination";
 import { getAllPosts, howTotalPages } from "@lib/blogService";
@@ -41,4 +42,13 @@ export default async function Page(props: Params) {
       </div>
     </main>
   );
+}
+
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+
+  return {
+    title: "Tags: " + params.tag.toUpperCase(),
+    openGraph: { title: "Tags: " + params.tag.toUpperCase() },
+  };
 }
