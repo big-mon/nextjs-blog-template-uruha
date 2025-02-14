@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import remarkTwitter from "./remark-twitter";
 import remarkYouTube from "./remark-youtube";
+import remarkAmazon from "./remark-amazon";
 
 import HeadingNode from "./HeadingNode";
 import ParagraphNode from "./ParagraphNode";
@@ -41,8 +42,10 @@ import {
   Html,
   YouTubeBlock,
   TwitterBlock,
+  AmazonBlock,
 } from "mdast";
 import { MarkdownRendererProps, NodesRendererProps } from "@interfaces/mdast";
+import AmazonNode from "./AmazonNode";
 
 /**
  * Markdownテキストを解析してReactコンポーネントを生成する
@@ -53,7 +56,8 @@ export const MarkdownRenderer = async ({ children }: MarkdownRendererProps) => {
     .use(remarkBreaks)
     .use(remarkGfm)
     .use(remarkTwitter)
-    .use(remarkYouTube);
+    .use(remarkYouTube)
+    .use(remarkAmazon);
 
   // Markdownテキストを解析し、Markdown Abstract Syntax Treeを生成
   const parsed = parseMarkdown.parse(children);
@@ -100,7 +104,7 @@ const renderNode = async (node: any, index: number) => {
     listItem: (node: ListItem) => <ListItemNode key={index} node={node} />,
     strong: (node: Strong) => <StrongNode key={index} node={node} />,
     emphasis: (node: Emphasis) => <EmphasisNode key={index} node={node} />,
-    break: () => <br />,
+    break: () => <br key={index} />,
     image: async (node: Image) => <ImageNode key={index} node={node} />,
     code: (node: Code) => <CodeNode key={index} node={node} />,
     delete: (node: Delete) => <DeleteNode key={index} node={node} />,
@@ -109,6 +113,7 @@ const renderNode = async (node: any, index: number) => {
     html: (node: Html) => <HtmlNode key={index} node={node} />,
     twitter: (node: TwitterBlock) => <TwitterNode key={index} node={node} />,
     youtube: (node: YouTubeBlock) => <YouTubeNode key={index} node={node} />,
+    amazon: (node: AmazonBlock) => <AmazonNode key={index} node={node} />,
   };
 
   const renderer = nodeRenderers[node.type];
