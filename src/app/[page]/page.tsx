@@ -22,12 +22,7 @@ export default async function Page(props: Params) {
       <ArticleList type={"all"} posts={pagePosts} isTopPage={false} />
 
       <div className="mb-16">
-        <Pagination
-          type={"all"}
-          currentPage={page}
-          totalPage={totalPage}
-          prefix={""}
-        />
+        <Pagination urlPrefix={"/"} currentPage={page} totalPage={totalPage} />
       </div>
     </main>
   );

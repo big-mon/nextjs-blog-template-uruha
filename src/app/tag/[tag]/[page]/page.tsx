@@ -13,9 +13,12 @@ type Params = {
 
 export default async function Page(props: Params) {
   const tag = decodeURIComponent((await props.params).tag);
-  const page = (await props.params).page;
+  const currentPage = (await props.params).page;
   const allPosts = getAllPosts().filter((post) => post.tags.includes(tag));
-  const pagePosts = allPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+  const pagePosts = allPosts.slice(
+    (currentPage - 1) * PER_PAGE,
+    currentPage * PER_PAGE,
+  );
   const totalPage = howTotalPages(allPosts);
 
   return (
@@ -29,10 +32,9 @@ export default async function Page(props: Params) {
 
       <div className="mb-16">
         <Pagination
-          type={"tag"}
-          currentPage={page}
+          urlPrefix={"/tag/" + tag + "/"}
+          currentPage={currentPage}
           totalPage={totalPage}
-          prefix={tag}
         />
       </div>
     </main>
