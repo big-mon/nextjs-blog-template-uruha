@@ -20,15 +20,15 @@ export default async function Page() {
 
       <ArticleList
         type={"category"}
-        segment={"Travel"}
-        posts={categoryPosts1}
+        segment={"Technology"}
+        posts={categoryPosts2}
         isTopPage={true}
       />
 
       <ArticleList
         type={"category"}
-        segment={"Technology"}
-        posts={categoryPosts2}
+        segment={"Travel"}
+        posts={categoryPosts1}
         isTopPage={true}
       />
     </main>
