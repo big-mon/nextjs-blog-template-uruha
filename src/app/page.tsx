@@ -15,7 +15,7 @@ export default async function Page() {
     .slice(0, 6);
 
   return (
-    <main className={cn("mx-5 mb-12 max-w-7xl py-4 md:mx-auto")}>
+    <main className={cn("mx-5 mb-12 max-w-5xl py-4 md:mx-auto")}>
       <ArticleList type={"all"} posts={allPosts.slice(0, 3)} isTopPage={true} />
 
       <ArticleList

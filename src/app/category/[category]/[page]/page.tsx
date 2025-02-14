@@ -24,7 +24,7 @@ export default async function Page(props: Params) {
   const totalPage = howTotalPages(allPosts);
 
   return (
-    <main className={cn("mx-5 mb-12 max-w-7xl py-4 md:mx-auto")}>
+    <main className={cn("mx-5 mb-12 max-w-5xl py-4 md:mx-auto")}>
       <ArticleList
         type={"category"}
         segment={category}

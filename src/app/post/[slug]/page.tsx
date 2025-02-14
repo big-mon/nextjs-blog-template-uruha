@@ -21,7 +21,7 @@ export default async function Page(props: Params) {
   }
 
   return (
-    <main className={cn("mb-12 max-w-7xl md:mx-auto")}>
+    <main className={cn("mb-12 max-w-5xl md:mx-auto")}>
       <article className={cn("mb-32")}>
         <PostHeader
           title={post.title}
