@@ -20,8 +20,8 @@ const CustomImage = ({ src, alt = "", title = "", blurredSrc }: Props) => {
         <CldImage
           src={src}
           alt={alt}
-          width={768}
-          height={768}
+          width={672}
+          height={378}
           placeholder="blur"
           blurDataURL={blurredSrc}
           namedTransformations={["post"]}

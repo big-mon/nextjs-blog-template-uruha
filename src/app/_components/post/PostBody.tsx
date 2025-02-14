@@ -6,7 +6,7 @@ type Props = {
 
 const PostBody = ({ content }: Props) => {
   return (
-    <div className="mx-auto max-w-3xl px-5 leading-relaxed tracking-wider md:px-0">
+    <div className="mx-auto max-w-2xl px-5 leading-relaxed tracking-wider md:px-0">
       <MarkdownRenderer>{content}</MarkdownRenderer>
     </div>
   );
