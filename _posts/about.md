@@ -1,5 +1,5 @@
 ---
-title: Shenheへようこそ
+title: Uruhaへようこそ
 description: Next.js向けブログテンプレートの紹介
 slug: about
 date: "2025-01-01T00:00:00"
@@ -11,11 +11,11 @@ category: Other
 tags: []
 ---
 
-# Shenhe とは
+# Uruha とは
 
-Shenhe は Next.js 向けに作成されたブログテンプレートです。Next.js の特色である高速化機能をそのままに、TypeScript を使用、Markdown による記事管理を特徴とした無料のテンプレートです。
+UruhaはNext.js向けに作成されたブログテンプレートです。Next.jsの特色である高速化機能をそのままに、TypeScriptを使用、Markdownによる記事管理を特徴とした無料のテンプレートです。
 
-以下に Markdown で記載した表現がどのような外観となるかを列挙します。
+以下にMarkdownで記載した表現がどのような外観となるかを列挙します。
 
 # ヘッダー
 
@@ -183,24 +183,24 @@ let x = "sample text";
 
 ````md
 ```youtube
-bIHPvQmU7JQ
+pL2KaGdSd5o
 ```
 ````
 
 ```youtube
-bIHPvQmU7JQ
+pL2KaGdSd5o
 ```
 
 # Twitter 埋め込み
 
 ````md
 ```twitter
-1441739144300929030
+1720659377525510570
 ```
 ````
 
 ```twitter
-1441739144300929030
+1720659377525510570
 ```
 
 # Amazon 埋め込み
