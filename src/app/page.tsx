@@ -5,12 +5,14 @@ import { getAllPosts } from "@lib/blogService";
 export default async function Page() {
   const allPosts = getAllPosts();
 
-  const categoryPosts1 = getAllPosts().filter(
-    (post) => post.category.toLowerCase() === "Travel".toLowerCase(),
-  );
-  const categoryPosts2 = getAllPosts().filter(
-    (post) => post.category.toLowerCase() === "Technology".toLowerCase(),
-  );
+  const categoryPosts1 = getAllPosts()
+    .filter((post) => post.category.toLowerCase() === "Travel".toLowerCase())
+    .slice(0, 6);
+  const categoryPosts2 = getAllPosts()
+    .filter(
+      (post) => post.category.toLowerCase() === "Technology".toLowerCase(),
+    )
+    .slice(0, 6);
 
   return (
     <main className={cn("mx-5 mb-12 max-w-7xl py-4 md:mx-auto")}>
