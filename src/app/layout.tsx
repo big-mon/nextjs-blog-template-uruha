@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import cn from "classnames";
 import GlobalHeader from "@components/GlobalHeader";
 import GlobalFooter from "@components/GlobalFooter";
@@ -16,39 +17,13 @@ const mainFont = Noto_Sans_JP({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s | " + SITE_NAME,
-    default: SITE_NAME,
-  },
-  description: SITE_DESCRIPTION,
-  twitter: {
-    card: "summary_large_image",
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    site: "@" + TWITTER,
-    images: SITE_IMAGE,
-    creator: "@" + TWITTER,
-  },
-  openGraph: {
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    siteName: SITE_NAME,
-    locale: "ja_JP",
-    type: "website",
-    images: [SITE_IMAGE],
-  },
-};
-
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ja">
-      <head>
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="theme-color" content="#000" />
-      </head>
       <body
         className={cn(
           mainFont.className,
@@ -62,3 +37,32 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | " + SITE_NAME,
+    default: SITE_NAME,
+  },
+  description: SITE_DESCRIPTION,
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    site: SITE_NAME,
+    images: SITE_IMAGE,
+    creator: "@" + TWITTER,
+  },
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    locale: "ja_JP",
+    type: "website",
+    images: [SITE_IMAGE],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#242526",
+  colorScheme: "only light",
+};

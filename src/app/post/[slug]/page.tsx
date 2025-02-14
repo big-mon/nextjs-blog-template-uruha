@@ -5,6 +5,7 @@ import PostBody from "@components/post/PostBody";
 import PostHeader from "@components/post/PostHeader";
 import { getAllPosts, getPostBySlug } from "@lib/blogService";
 import { getCloudinaryImageUrl } from "@lib/cloudinary";
+import { SITE_NAME, TWITTER } from "@lib/constants";
 
 type Params = {
   params: Promise<{
@@ -47,8 +48,22 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   return {
     title: post.title,
+    description: post.description,
+    keywords: post.tags,
+    authors: post.author,
+    twitter: {
+      card: "summary_large_image",
+      description: post.description,
+      site: SITE_NAME,
+      creator: "@" + TWITTER,
+    },
     openGraph: {
       title: post.title,
+      description: post.description,
+      siteName: SITE_NAME,
+      type: "article",
+      publishedTime: post.date,
+      authors: post.author.name,
       images: [
         post.ogImage
           ? getCloudinaryImageUrl(post.ogImage, "ogp")
