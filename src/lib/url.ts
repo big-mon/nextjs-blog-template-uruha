@@ -15,10 +15,17 @@ export const isExternalLink = (url: string) => {
  * @returns 簡略化された文字列
  */
 export const simplifyText = (text: string) => {
-  return text
-    .toLowerCase()
-    .normalize("NFD") // 正規化してアクセント記号を分解
-    .replace(/[\u0300-\u036f]/g, "") // アクセント記号を削除
-    .replace(/\s+/g, "-") // スペースをハイフンに置換
-    .replace(/[^\w\-]+/g, ""); // 英数字とハイフン以外を削除
+  // 1. 文字列を小文字に変換
+  let str = text.toLowerCase();
+
+  // 2. アクセント記号や特殊文字を削除
+  str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+  // 3. 日本語範囲外以外の文字をハイフンに変換
+  str = str.replace(/[^\u0000-\u007F\u3040-\u30FF\u4E00-\u9FFF]+/g, "-");
+
+  // 4. 先頭と末尾のハイフンを削除
+  str = str.replace(/^[\-]+|[\-]+$/g, "");
+
+  return str;
 };
