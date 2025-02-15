@@ -7,7 +7,7 @@ type Props = {
 
 const TableOfContents = ({ toc }: Props) => {
   return (
-    <nav className={cn("sticky top-10")}>
+    <nav className={cn("sticky top-10 max-h-[90svh] overflow-y-auto")}>
       <p
         className={cn(
           "relative z-10 mb-2 inline-block text-lg font-semibold",
