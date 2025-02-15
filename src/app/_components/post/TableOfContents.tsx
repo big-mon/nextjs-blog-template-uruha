@@ -7,7 +7,7 @@ type Props = {
 
 const TableOfContents = ({ toc }: Props) => {
   return (
-    <nav className={cn("text-sm")}>
+    <nav className={cn("sticky top-10")}>
       <p
         className={cn(
           "relative z-10 mb-2 inline-block text-lg font-semibold",
@@ -17,7 +17,7 @@ const TableOfContents = ({ toc }: Props) => {
         <span className={cn("bg-background ml-6 pl-4")}>Table of Contents</span>
       </p>
 
-      <ul>
+      <ul className={cn("text-sm")}>
         {toc.map((item) => {
           const simplifiedId = simplifyText(item.text);
 
