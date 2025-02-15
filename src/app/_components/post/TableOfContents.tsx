@@ -19,7 +19,7 @@ const TableOfContents = ({ toc }: Props) => {
 
       <ul>
         {toc.map((item) => {
-          const simplifiedId = simplifyText(item.id);
+          const simplifiedId = simplifyText(item.text);
 
           return item.tag === "h1" ? (
             <li

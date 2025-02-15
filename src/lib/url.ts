@@ -21,10 +21,13 @@ export const simplifyText = (text: string) => {
   // 2. アクセント記号や特殊文字を削除
   str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  // 3. 日本語範囲外以外の文字をハイフンに変換
+  // 3. スペースとスラッシュを削除
+  str = str.replace(/[\s\/]+/g, ""); // \s は空白文字（スペース、タブ、改行など）
+
+  // 4. 日本語範囲外以外の文字をハイフンに変換
   str = str.replace(/[^\u0000-\u007F\u3040-\u30FF\u4E00-\u9FFF]+/g, "-");
 
-  // 4. 先頭と末尾のハイフンを削除
+  // 5. 先頭と末尾のハイフンを削除
   str = str.replace(/^[\-]+|[\-]+$/g, "");
 
   return str;
