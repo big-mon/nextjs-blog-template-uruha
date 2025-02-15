@@ -1,6 +1,7 @@
 import cn from "classnames";
 import { Heading, Text, Parent } from "mdast";
 import { NodesRenderer } from "./markdownRenderer";
+import { simplifyText } from "@lib/url";
 import styles from "@styles/markdown.module.scss";
 
 /**
@@ -40,10 +41,7 @@ const HeadingNode = ({ node }: { node: Heading }) => {
   })(node.children as (Text | Parent)[]);
 
   return (
-    <Component
-      id={encodeURIComponent(childrenText)}
-      className={cn(styles.heading)}
-    >
+    <Component id={simplifyText(childrenText)} className={cn(styles.heading)}>
       <NodesRenderer nodes={node.children} />
     </Component>
   );

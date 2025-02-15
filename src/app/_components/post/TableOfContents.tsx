@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { simplifyText } from "@lib/url";
 
 type Props = {
   toc: { tag: string; text: string; id: string }[];
@@ -17,22 +18,27 @@ const TableOfContents = ({ toc }: Props) => {
       </p>
 
       <ul>
-        {toc.map((item) =>
-          item.tag === "h1" ? (
+        {toc.map((item) => {
+          const simplifiedId = simplifyText(item.id);
+
+          return item.tag === "h1" ? (
             <li
-              key={item.id}
+              key={simplifiedId}
               className={cn(
                 "truncate border-t border-t-neutral-300 py-2 first-of-type:border-t-0",
               )}
             >
-              <a href={`#${item.id}`}>{item.text}</a>
+              <a href={`#${simplifiedId}`}>{item.text}</a>
             </li>
           ) : (
-            <li key={item.id} className={cn("text-neutral/50 truncate py-2")}>
-              <a href={`#${item.id}`}>{item.text}</a>
+            <li
+              key={simplifiedId}
+              className={cn("text-neutral/50 truncate py-2")}
+            >
+              <a href={`#${simplifiedId}`}>{item.text}</a>
             </li>
-          ),
-        )}
+          );
+        })}
       </ul>
     </nav>
   );
