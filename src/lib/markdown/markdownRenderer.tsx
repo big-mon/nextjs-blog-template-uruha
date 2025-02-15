@@ -22,6 +22,7 @@ import ThematicBreakNode from "./ThematicBreakNode";
 import HtmlNode from "./HtmlNode";
 import TwitterNode from "./TwitterNode";
 import YouTubeNode from "./YouTubeNode";
+import AmazonNode from "./AmazonNode";
 
 import {
   Root,
@@ -45,7 +46,6 @@ import {
   AmazonBlock,
 } from "mdast";
 import { MarkdownRendererProps, NodesRendererProps } from "@interfaces/mdast";
-import AmazonNode from "./AmazonNode";
 
 /**
  * Markdownテキストを解析してReactコンポーネントを生成する
