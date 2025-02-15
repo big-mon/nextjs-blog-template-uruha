@@ -3,9 +3,10 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostBody from "@components/post/PostBody";
 import PostHeader from "@components/post/PostHeader";
+import ProgressBar from "@components/ProgressBar";
 import { getAllPosts, getPostBySlug } from "@lib/blogService";
 import { getCloudinaryImageUrl } from "@lib/cloudinary";
-import { SITE_NAME, TWITTER } from "@lib/constants";
+import { SITE_NAME, TWITTER, IS_ACTIVE_PROGRESSBAR } from "@lib/constants";
 
 type Params = {
   params: Promise<{
@@ -24,6 +25,8 @@ export default async function Page(props: Params) {
   return (
     <main className={cn("mb-12 max-w-6xl md:mx-auto")}>
       <article className={cn("mb-32")}>
+        {IS_ACTIVE_PROGRESSBAR ? <ProgressBar /> : <></>}
+
         <PostHeader
           title={post.title}
           category={post.category}

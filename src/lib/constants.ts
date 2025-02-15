@@ -9,3 +9,4 @@ export const GITHUB = "big-mon"; // github account
 export const AMAZON_AFFILIATE = "d6l0g03-22"; // Amazon affiliate id
 
 export const PER_PAGE: number = 9;
+export const IS_ACTIVE_PROGRESSBAR = true;
