@@ -28,14 +28,24 @@ const TableOfContents = ({ toc }: Props) => {
                 "truncate border-t border-t-neutral-300 py-2 first-of-type:border-t-0",
               )}
             >
-              <a href={`#${simplifiedId}`}>{item.text}</a>
+              <a
+                href={`#${simplifiedId}`}
+                className={cn("hover:text-secondary")}
+              >
+                {item.text}
+              </a>
             </li>
           ) : (
             <li
               key={simplifiedId}
               className={cn("text-neutral/50 truncate py-2")}
             >
-              <a href={`#${simplifiedId}`}>{item.text}</a>
+              <a
+                href={`#${simplifiedId}`}
+                className={cn("hover:text-secondary")}
+              >
+                {item.text}
+              </a>
             </li>
           );
         })}
