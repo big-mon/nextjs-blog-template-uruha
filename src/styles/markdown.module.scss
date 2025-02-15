@@ -29,6 +29,10 @@ h6.heading {
   line-height: 1.6;
   margin-top: 2rem;
 }
+h1.heading:first-child,
+h2.heading:first-child {
+  margin-top: 0;
+}
 
 p.paragraph {
   font-size: 1.0625rem;

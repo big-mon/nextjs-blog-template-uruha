@@ -13,8 +13,8 @@ type Props = {
 
 const imageConfig = {
   large: {
-    width: 500,
-    height: 281,
+    width: 628,
+    height: 353,
     class: "object-cover",
     priority: true,
   },

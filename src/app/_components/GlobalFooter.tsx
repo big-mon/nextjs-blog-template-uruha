@@ -42,7 +42,7 @@ const GlobalFooter = () => {
     <footer className={cn("bg-neutral text-background")}>
       <div
         className={cn(
-          "mx-5 max-w-5xl py-12 md:mx-auto",
+          "mx-5 max-w-6xl py-12 md:mx-auto",
           "md:flex md:items-center md:justify-between",
         )}
       >

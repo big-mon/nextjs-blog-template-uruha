@@ -7,7 +7,7 @@ const GlobalHeader = () => {
   return (
     <header
       className={cn(
-        "mx-5 mb-6 max-w-5xl py-4 md:mx-auto",
+        "mx-5 mb-6 max-w-6xl py-4 md:mx-auto",
         "flex flex-wrap items-center justify-between",
         "border-b-2 border-b-gray-300 md:border-b-0",
       )}

@@ -24,6 +24,8 @@ import TwitterNode from "./TwitterNode";
 import YouTubeNode from "./YouTubeNode";
 import AmazonNode from "./AmazonNode";
 
+import TableOfContents from "@components/post/TableOfContents";
+
 import {
   Root,
   Heading,
@@ -62,11 +64,17 @@ export const MarkdownRenderer = async ({ children }: MarkdownRendererProps) => {
   // Markdownテキストを解析し、Markdown Abstract Syntax Treeを生成
   const parsed = parseMarkdown.parse(children);
 
+  // 目次を生成
+  const toc = generateTableOfContents(parsed);
+
   // MDASTから最終的な構造を取得
   const mdastRoot = (await parseMarkdown.run(parsed)) as Root;
 
-  // MDASTをReactコンポーネントに変換
-  return <NodesRenderer nodes={mdastRoot.children} />;
+  // MDASTをReactコンポーネントに変換し、目次と本文に分けて返却
+  return {
+    toc: <TableOfContents toc={toc} />,
+    body: <NodesRenderer nodes={mdastRoot.children} />,
+  };
 };
 
 /**
@@ -80,7 +88,7 @@ export const NodesRenderer = async ({ nodes }: NodesRendererProps) => {
 };
 
 /**
- * 指定されたノードをレンダリングする非同期関数。
+ * 指定されたノードをレンダリングする
  *
  * @param node - レンダリングするノード。ノードのタイプに応じて適切なコンポーネントが選択される。
  * @param index - ノードのインデックス。キーとして使用される。
@@ -127,4 +135,26 @@ const renderNode = async (node: any, index: number) => {
       </div>
     );
   }
+};
+
+/**
+ * Markdownテキストから目次を生成する
+ *
+ * @param parsed - 解析されたMarkdown AST
+ * @returns 目次
+ */
+const generateTableOfContents = (parsed: Root) => {
+  const toc: { tag: string; text: string; id: string }[] = [];
+  function visit(node: any) {
+    if (node.type === "heading" && (node.depth === 1 || node.depth === 2)) {
+      const text = node.children.map((child: any) => child.value).join("");
+      const id = text.toLowerCase().replace(/\s+/g, "-");
+      toc.push({ tag: `h${node.depth}`, text, id });
+    }
+    if (node.children) {
+      node.children.forEach(visit);
+    }
+  }
+  visit(parsed);
+  return toc;
 };

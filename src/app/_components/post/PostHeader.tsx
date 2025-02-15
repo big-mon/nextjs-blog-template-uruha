@@ -28,7 +28,7 @@ const PostHeader = async ({
   return (
     <header
       className={cn(
-        "mb-20 max-w-5xl md:mx-auto",
+        "mb-20 max-w-6xl md:mx-auto",
         "grid-cols-2 items-center gap-6 md:grid",
       )}
     >
