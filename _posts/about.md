@@ -139,12 +139,12 @@ UruhaはNext.js向けに作成されたブログテンプレートです。Next.
 
 ```md
 ![alt](/illust/oajmdfvac2ydbyrudcwo)
-![alt](/illust/ar6fbsinlkhklveegkta "caption")
+![altテキスト](/illust/ar6fbsinlkhklveegkta "画像の説明")
 ![photo](/photo/dgmplxtjcfop3h3rqfde)
 ```
 
 ![alt](/illust/oajmdfvac2ydbyrudcwo)
-![alt](/illust/ar6fbsinlkhklveegkta "caption")
+![altテキスト](/illust/ar6fbsinlkhklveegkta "画像の説明")
 ![photo](/photo/dgmplxtjcfop3h3rqfde)
 
 # 引用
