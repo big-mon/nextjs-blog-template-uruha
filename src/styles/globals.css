@@ -8,3 +8,40 @@
   --color-neutral: #242526;
   --color-background: #f8f8f8;
 }
+
+/* スクロールバー全体の幅 */
+::-webkit-scrollbar {
+  width: 0.5rem; /* 細くする */
+  height: 0.5rem; /* 水平スクロールバー用 */
+}
+
+/* スクロールバーのトラック (背景) */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* 薄いグレー */
+}
+
+/* スクロールバーのつまみ (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #aaa; /* 濃いグレー */
+  border: 2px solid #f0f0f0; /* トラックの色と同じボーダーを付けると、さらに細く見える */
+}
+
+/* マウスホバー時 */
+::-webkit-scrollbar-thumb:hover {
+  background: #777; /* より濃いグレー */
+}
+
+/* アクティブ時 (クリック時) */
+::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+
+/* スクロールバーの角 (両端) */
+::-webkit-scrollbar-corner {
+  background: #f0f0f0;
+}
+
+/* スクロールバーのボタン (上下の矢印) - 通常は非表示にする */
+::-webkit-scrollbar-button {
+  display: none;
+}
