@@ -431,10 +431,10 @@
   resolved "https://registry.npmjs.org/@types/ms/-/ms-2.1.0.tgz"
   integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
 
-"@types/node@^22.13.2":
-  version "22.13.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.2.tgz#6f401c5ccadac75354f5652128e9fcc3b0cf23b7"
-  integrity sha512-Z+r8y3XL9ZpI2EY52YYygAFmo2/oWfNSj4BCpAXE2McAexDk8VcnBMGC9Djn9gTKt4d2T/hhXqmPzo4hfIXtTg==
+"@types/node@^22.13.4":
+  version "22.13.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.4.tgz#3fe454d77cd4a2d73c214008b3e331bfaaf5038a"
+  integrity sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==
   dependencies:
     undici-types "~6.20.0"
 
@@ -1240,7 +1240,7 @@ next-cloudinary@^6.16.0:
     "@cloudinary-util/url-loader" "5.10.4"
     "@cloudinary-util/util" "4.0.0"
 
-next@15.1.7:
+next@^15.1.7:
   version "15.1.7"
   resolved "https://registry.yarnpkg.com/next/-/next-15.1.7.tgz#e814845e7cdb0294aee88ceab0bb962de83e8e6f"
   integrity sha512-GNeINPGS9c6OZKCvKypbL8GTsT5GhWPp4DM0fzkXJuXMilOO2EeFxuAY6JZbtk6XIl6Ws10ag3xRINDjSO5+wg==
@@ -1325,21 +1325,21 @@ prettier-plugin-tailwindcss@^0.6.11:
   resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.6.11.tgz#cfacd60c4f81997353ee913e589037f796df0f5f"
   integrity sha512-YxaYSIvZPAqhrrEpRtonnrXdghZg1irNg4qrjboCXrpybLWVs55cW2N3juhspVJiO0JBvYJT8SYsJpc8OQSnsA==
 
-prettier@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.0.tgz#50325a28887c6dfdf2ca3f8eaba02b66a8429ca7"
-  integrity sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==
+prettier@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.1.tgz#22fac9d0b18c0b92055ac8fb619ac1c7bef02fb7"
+  integrity sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==
 
-react-dom@19.0.0:
+react-dom@^19.0.0:
   version "19.0.0"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-19.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.0.0.tgz#43446f1f01c65a4cd7f7588083e686a6726cfb57"
   integrity sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==
   dependencies:
     scheduler "^0.25.0"
 
-react@19.0.0:
+react@^19.0.0:
   version "19.0.0"
-  resolved "https://registry.npmjs.org/react/-/react-19.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.0.0.tgz#6e1969251b9f108870aa4bff37a0ce9ddfaaabdd"
   integrity sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==
 
 readdirp@^4.0.1:
@@ -1397,10 +1397,10 @@ remark@^15.0.1:
     remark-stringify "^11.0.0"
     unified "^11.0.0"
 
-sass@^1.84.0:
-  version "1.84.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.84.0.tgz#da9154cbccb2d2eac7a9486091b6d9ba93ef5bad"
-  integrity sha512-XDAbhEPJRxi7H0SxrnOpiXFQoUJHwkR2u3Zc4el+fK/Tt5Hpzw5kkQ59qVDfvdaUq6gCrEZIbySFBM2T9DNKHg==
+sass@^1.85.0:
+  version "1.85.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.85.0.tgz#0127ef697d83144496401553f0a0e87be83df45d"
+  integrity sha512-3ToiC1xZ1Y8aU7+CkgCI/tqyuPXEmYGJXO7H4uqp0xkLXUqp88rQQ4j1HmP37xSJLbCJPaIiv+cT1y+grssrww==
   dependencies:
     chokidar "^4.0.0"
     immutable "^5.0.2"
