@@ -10,7 +10,7 @@ const PostBody = async ({ content }: Props) => {
 
   return (
     <div className={cn("justify-between md:flex")}>
-      <div className={cn("order-last hidden min-w-3xs md:block")}>{toc}</div>
+      <div className={cn("order-last hidden w-3xs md:block")}>{toc}</div>
       <div
         className={cn(
           "leading-relaxed tracking-wider",
